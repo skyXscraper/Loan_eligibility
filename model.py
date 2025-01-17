@@ -62,6 +62,7 @@ from sklearn.metrics import accuracy_score
 svc=SVC()
 svc.fit(train_prepared, labels)
 predictions=svc.predict(test_prepared)
+
 ## ACCURACY = 0.9
 
 import joblib
