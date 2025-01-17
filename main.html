@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Score Checker</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body> 
+    <div class="container">
+        <h1>Credit Score Checker</h1>
+        <form action="/predict" method="post">
+            <label for="cust_id">Loan ID:</label>
+            <input type="text" id="cust_id" name="cust_id" required>
+            
+            <label for="gender">Gender:</label>
+            <input type="text" id="gender" name="gender" required>
+            
+            <label for="married">Married (yes/no):</label>
+            <input type="text" id="married" name="married" required>
+            
+            <label for="dependants">Number of dependants:</label>
+            <input type="number" id="dependants" name="dependants" step="1" required>
+            
+            <label for="edu">Education (Graduate/Not Graduate):</label>
+            <input type="text" id="edu" name="edu" required>
+
+            <label for="slf_emp">Self employed(Yes/No):</label>
+            <input type="text" id="slf_emp" name="slf_emp" required>
+
+            <label for="income">Monthly Income(Applicant's):</label>
+            <input type="number" id="income" name="income" step="0.01" required>
+
+            <label for="co_income">Monthly Income(Co-applicant's):</label>
+            <input type="number" id="co_income" name="co_income" step="0.01" required>
+
+            <label for="amnt">Loan Amount:</label>
+            <input type="number" id="amnt" name="amnt" step="0.01" required>
+
+            <label for="loan_term">Loan term(in days):</label>
+            <input type="number" id="loan_term" name="loan_term" step="1" required>
+
+            <label for="credit_history">Credit History (1=Good, 0=Bad):</label>
+            <input type="number" id="credit_history" name="credit_history" min="0" max="1" required>
+
+            <label for="area">Residential area type(Urban/Semiurban/Rural):</label>
+            <input type="text" id="area" name="area" required>
+
+            <button type="submit">Check Credit Score</button>
+        </form>
+
+        {% if prediction_text %}
+        <p class="result">{{ prediction_text }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
