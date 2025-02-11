@@ -5,6 +5,7 @@ import pandas as pd
 app=Flask(__name__)
 model=joblib.load("model.pkl")
 pipeline=joblib.load("pipeline.pkl")
+
 @app.route('/')
 def home():
     return render_template("main.html")
